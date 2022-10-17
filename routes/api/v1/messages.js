@@ -1,10 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const messageController = require('./../../../controllers/api/v1/messages');
 
 // GET messages
-router.get('/', (req, res, next) => {
-    res.send('Getting messages ...');
-});
+router.get('/', messageController.getAll);
 
 // GET message by id
 router.get('/:id', (req, res, next) => {
