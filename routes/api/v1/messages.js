@@ -15,20 +15,12 @@ router.get('/:id', messageController.getById);
 // });
 
 // POST messages
-router.post('/', (req, res, next) => {
-    res.send('Posting messages ...');
-});
+router.post('/', messageController.create);
 
 // PUT message by id
-router.put('/:id', (req, res, next) => {
-    let id = req.params.id;
-    res.send(`Putting message by id = ${id}`);
-});
+router.put('/:id', messageController.update);
 
 // DELETE message by id
-router.delete('/:id', (req, res, next) => {
-    let id = req.params.id;
-    res.send(`Deleting message by id = ${id}`);
-});
+router.delete('/:id', messageController.deleteMessage);
 
 module.exports = router;
