@@ -1,9 +1,17 @@
 const getAll = (req, res) => {
-    // res.send('Getting messages ...');
-    res.json({
-        "status": "success",
-        "data": "Getting messages ...",
-    });
+    // check if parameter user is present
+    if (req.query.user) {
+        res.json({
+            "status": "success",
+            "data": `GETTING messages for  username = ${req.query.user}`
+        });
+    }
+    else {
+        res.json({
+            "status": "success",
+            "data": "GETTING messages",
+        });
+    }
 }
 
 const getById = (req, res) => {
