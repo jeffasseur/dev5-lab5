@@ -6,10 +6,7 @@ const messageController = require('./../../../controllers/api/v1/messages');
 router.get('/', messageController.getAll);
 
 // GET message by id
-router.get('/:id', (req, res, next) => {
-    let id = req.params.id;
-    res.send(`Getting message by id = ${id}`);
-});
+router.get('/:id', messageController.getById);
 
 // GET messages by username
 // router.get('?user', (req, res, next) => {
