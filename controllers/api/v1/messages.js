@@ -3,13 +3,16 @@ const getAll = (req, res) => {
     if (req.query.user) {
         res.json({
             "status": "success",
-            "data": `GETTING messages for  username = ${req.query.user}`
+            "message": `GETTING messages for  username = ${req.query.user}`,
+            "data": {
+                "user": req.query.user,
+            }
         });
     }
     else {
         res.json({
             "status": "success",
-            "data": "GETTING messages",
+            "message": "GETTING messages",
         });
     }
 }
@@ -19,7 +22,10 @@ const getById = (req, res) => {
     // res.send(`Getting message by id = ${id}`);
     res.json({
         "status": "success",
-        "data": `Getting message by id = ${id}`,
+        "message": `Getting message by id = ${id}`,
+        "data": {
+            "id": id,
+        }
     });
 }
 
@@ -28,7 +34,11 @@ const create = (req, res) => {
     let text = req.body.text;
     res.json({
         "status": "success",
-        "message": `POSTING a new message for user ${user}`
+        "message": `POSTING a new message for user ${user}`,
+        "data": {
+            "user": user,
+            "text": text,
+        }
     });
 }
 
@@ -36,7 +46,10 @@ const update = (req, res) => {
     let id = req.params.id;
     res.json({
         "status": "success",
-        "message": `UPDATING a message with id = ${id}`
+        "message": `UPDATING a message with id = ${id}`,
+        "data": {
+            "id": id,
+        }
     });
 }
 
@@ -44,7 +57,10 @@ const deleteMessage = (req, res) => {
     let id = req.params.id;
     res.json({
         "status": "success",
-        "message": `DELETING a message with id = ${id}`
+        "message": `DELETING a message with id = ${id}`,
+        "data": {
+            "id": id,
+        }
     });
 }
 
