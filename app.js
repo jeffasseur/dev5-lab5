@@ -13,7 +13,8 @@ const messagesRouter = require('./routes/api/v1/messages');
 const app = express();
 app.use(cors({
   origin: ['http://localhost:3000', 'https://codepen.io', 'https://dev5-lab5-n8xn.onrender.com'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'UPDATE']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'UPDATE'],
+  credentials: true
 }));
 
 // view engine setup
